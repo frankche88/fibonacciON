@@ -35,7 +35,15 @@ public class Exponential {
 	
 	
 	
-	public long fibonacciOn (int n) {
+	public long fibonacciOn (int n) throws Exception {
+		
+		if(n < 0) {
+			throw new Exception("No se permiten ceros");
+		}
+		
+		if(n <= 2) {
+			return 1;
+		}
 		long a = 0;
 		long b = 1;
 		long c;
