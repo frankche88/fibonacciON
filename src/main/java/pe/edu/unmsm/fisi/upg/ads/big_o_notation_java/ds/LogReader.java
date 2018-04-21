@@ -1,7 +1,7 @@
 package pe.edu.unmsm.fisi.upg.ads.big_o_notation_java.ds;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 
 public class LogReader implements Iterable<LogLine> {
@@ -12,7 +12,7 @@ public class LogReader implements Iterable<LogLine> {
     public LogReader(int sizeLogLines, int sizeUniqueIps) {
         this.sizeLogLines = sizeLogLines;
         this.sizeUniqueIps = sizeUniqueIps;
-        this.uniqueIps = new ArrayList<String>();
+        this.uniqueIps = new HashSet<String>();
     }
 
     public Iterator<LogLine> iterator() {
@@ -30,12 +30,12 @@ public class LogReader implements Iterable<LogLine> {
     }
 
     public int getSizeUniqueIps() {
+    	
+    	//Complejidad N * N
 
         for (LogLine logLine : this) {
             String ip = logLine.getIP();
-            if (!this.uniqueIps.contains(ip)) {
-                this.uniqueIps.add(ip);
-            }
+            this.uniqueIps.add(ip);
         }
         return this.uniqueIps.size();
     }
