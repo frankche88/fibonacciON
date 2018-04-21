@@ -19,7 +19,7 @@ public class Exponential {
 				e.printStackTrace();
 			}
         }
-		System.out.println(String.format("Time elapsed: %d seconds", stopwatch.elapsed(TimeUnit.SECONDS)) + "\n");
+		System.out.println(String.format("Time elapsed: %d milliseconds", stopwatch.elapsed(TimeUnit.MILLISECONDS)) + "\n");
 	}
 	
 	public long fibonacci(int n) throws Exception {
