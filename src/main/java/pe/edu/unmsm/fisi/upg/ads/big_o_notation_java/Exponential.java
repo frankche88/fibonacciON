@@ -13,7 +13,7 @@ public class Exponential {
 		Stopwatch stopwatch = Stopwatch.createStarted();
 		for (int i = 1; i <= N; i++) {
 			try {
-				long fibonacci = exponential.fibonacciOn(i);
+				long fibonacci = exponential.fibonacciOnDinamica(i);
 				System.out.println(i + " => " + fibonacci);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -58,5 +58,34 @@ public class Exponential {
 		return a;
 		
 	}
+	
+	
+	public long fibonacciOnDinamica (int n) throws Exception {
+		
+		if(n < 0) {
+			throw new Exception("No se permiten ceros");
+		}
+		
+		if(n <= 2) {
+			return 1;
+		}
+		
+		long vector[] = new long[n+1] ;
+		vector[0] = 1;
+		vector[1] = 0;
+		
+		for(int k=2; k < n +1; k++) {
+			vector[k] = vector[k-1] + vector[k-2];
+		}
+		
+		return vector[n];
+		
+		
+	}
+	
+	
+	
+	
+	
 	
 }
